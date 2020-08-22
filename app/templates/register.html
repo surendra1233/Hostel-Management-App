@@ -1,0 +1,48 @@
+{% extends "base2.html" %}
+
+{% block content %}
+    <h1 class="heading">Register</h1>
+    <form action="" method="post">
+        <fieldset class="field">
+            {{ form.csrf_token }}
+            {{ form.hidden_tag() }}
+            <p class="username">
+                {{ form.username(size=32,placeholder="username") }}<br>
+                {% for error in form.username.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+                {% endfor %}
+            </p>
+            <p class="email">
+                {{ form.email(size=32,placeholder="IIIT-email") }}<br>
+                {% for error in form.email.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+                {% endfor %}
+            </p>
+            <p class="batch">
+                {{ form.batch(size=32,placeholder="batch") }}<br>
+                {% for error in form.batch.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+                {% endfor %}
+            </p>
+            <p class="city">
+                {{ form.city(size=32,placeholder="city") }}<br>
+                {% for error in form.city.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+                {% endfor %}
+            </p>
+            <p class="password">
+                {{ form.password(size=32,placeholder="password") }}<br>
+                {% for error in form.password.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+                {% endfor %}
+            </p>
+            <p class="password">
+                {{ form.password2(size=32,placeholder="Re-type the password") }}<br>
+                {% for error in form.password2.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+            </p>
+            <p>{{ form.submit() }}</p>
+        </fieldset>
+    </form>
+{% endblock %}

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<title>Home Page</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="{{ url_for('static',filename='styles/styles.css') }}">
+<link rel="stylesheet" href="{{ url_for('static',filename='styles/w3.css') }}">
+<link rel="stylesheet" href="{{ url_for('static',filename='styles/w3-theme-blue-grey.css') }}">
+<link rel='stylesheet' href="{{ url_for('static',filename='styles/opensans.css') }}">
+<style>
+	html,body,h1,h2,h3,h4,h5 {font-family: "Open Sans", sans-serif}
+	article, aside, figure, footer, header, hgroup, menu, nav, section { display: block; }
+</style>
+<body class="w3-theme-l5">
+	<!-- Navbar -->
+	<div class="w3-top">
+		<div class="w3-bar w3-theme-d2 w3-left-align w3-large">
+			<a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-theme-d2" href="javascript:void(0);" onclick="openNav()"><i class="fa fa-bars"></i></a>
+			<a class="w3-bar-item w3-padding-large w3-theme-d4"><i class="fa fa-home w3-margin-right"></i>Home</a>
+			<a href="{{ url_for('home') }}" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white" title="News Feed"><!-- <i class="fa fa-globe"></i> -->News Feed</a>
+			<a href="{{ url_for('roomalloc') }}" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white" title="Room Allocation"><!-- <i class="fa fa-user"></i> -->Room Allocation</a>
+			<a href="{{ url_for('groups') }}" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white" title="Messages"><!-- <i class="fa fa-envelope"></i> -->Other Groups</a>
+			<a href="{{ url_for('notifications') }}" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white" title="NOtifications"><!-- <i class="fa fa-envelope"></i> -->Notifications</a>
+    		<a href="{{ url_for('logout') }}" class="w3-bar-item w3-button w3-hide-small w3-right w3-padding-large w3-hover-white" title="Logout">Logout
+    		<img src="{{ url_for('static',filename='styles/avatar3.png') }}" class="w3-circle" style="height:23px;width:23px" alt="Avatar"></a>
+</div>
+</div>
+
+<!-- Navbar on small screens -->
+<div id="navDemo" class="w3-bar-block w3-theme-d2 w3-hide w3-hide-large w3-hide-medium w3-large">
+	<a href="{{ url_for('home') }}" class="w3-bar-item w3-button w3-padding-large">News Feed</a>
+	<a href="#" class="w3-bar-item w3-button w3-padding-large">Room Allocation</a>
+	<a href="{{ url_for('groups') }}" class="w3-bar-item w3-button w3-padding-large">All Groups</a>
+	<a href="#" class="w3-bar-item w3-button w3-padding-large">My Profile</a>
+</div>
+
+<!-- Page Container -->
+<div class="w3-container w3-content" style="max-width:1400px;margin-top:80px">    
+	<!-- The Grid -->
+	<div class="w3-row">
+		<!-- Left Column -->
+		<div class="w3-col m3">
+			<!-- Profile -->
+			<div class="w3-card w3-round w3-white">
+				<div class="w3-container">
+					<h4 class="w3-center">My Profile</h4>
+					<p class="w3-center">
+						<img src="{{ url_for('static',filename='styles/avatar3.png') }}" class="w3-circle" style="height:106px;width:106px" alt="Avatar"> 
+					</p>
+					<hr>
+					<p><i class="fa fa-pencil fa-fw w3-margin-right w3-text-theme"></i> Batch of {{ user.batch }}</p>
+					<p><i class="fa fa-home fa-fw w3-margin-right w3-text-theme"></i> {{ user.city }}</p>
+					<p><i class="fa fa-birthday-cake fa-fw w3-margin-right w3-text-theme"></i> {{ user.email }}</p>
+				</div>
+			</div>
+			<br>
+	{% block content %} {% endblock %}
+
+
+    <!-- End Right Column -->
+
+<!-- End Grid -->
+</div>
+
+<!-- End Page Container -->
+</div>
+
+
+<!-- Footer -->
+<footer class="w3-container w3-theme-d3 w3-padding-16">
+	<h5>Hostel Management Portal</h5>
+</footer>
+
+<footer class="w3-container w3-theme-d5">
+	<p>Created by Rutwik and Surendra</p>
+</footer>
+
+</body>
+</html>	

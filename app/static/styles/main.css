@@ -1,0 +1,12 @@
+.heading
+{
+	text-align: center;
+	text-shadow: 0.1% 0.1% #000000;
+	color: #00ff00;
+}
+.field
+{
+	margin-left: 35%;
+	margin-right: 35%;
+	text-align: center;
+}

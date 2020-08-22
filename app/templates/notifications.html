@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{% for i in notif1 %}
+<div class="w3-container w3-card w3-white w3-round w3-margin">
+      <p class="w3-col m7 w3-row-padding w3-col m12 w3-padding w3 w3-opacity"> {{ i.author.username }} requested to post in {{ i.group.name }} {{ i.timestamp }} ago</p>
+			<p class="w3-col m7 w3-row-padding w3-col m12 w3-padding w3 w3-opacity"> {{ i.body }}</p>
+                <form action="" method = "post">
+                {{ form.csrf_token }}
+                      <table>
+                        <tr>
+                          <td>
+                           <button class="w3-button w3-theme-d2 w3-margin-bottom" name = "accept" value="r1 {{ i.id }}"></span>accept</button>
+                          </td>
+                          <td>
+                          <button class="w3-button w3-theme-d2 w3-margin-bottom" name="accept" value="r1C {{ i.id }}"><i class="fa fa-comment">decline</i></button>
+                          </td>
+                        </tr>
+                      </table>
+                  </form>
+
+		</div>
+{% endfor %}
+
+{% for i in range(0,notif2|length,2) %}
+<div class="w3-container w3-card w3-white w3-round w3-margin">
+      <p class="w3-col m7 w3-row-padding w3-col m12 w3-padding w3 w3-opacity"> {{ notif2[i].username }} asked to join group {{ notif2[i+1].name }}</p>
+                <form action="" method = "post">
+                {{ form.csrf_token }}
+                      <table>
+                        <tr>
+                          <td>
+                           <button class="w3-button w3-theme-d2 w3-margin-bottom" name = "accept" value="r2 {{ notif2[i].id }} {{ notif2[i+1].id }}"><i>accept</i></button>
+                          </td>
+                          <td>
+                          <button class="w3-button w3-theme-d2 w3-margin-bottom" name="accept" value="r2C {{ notif2[i].id }} {{ notif2[i+1].id }}"><i class="fa fa-comment">decline</i></button>
+                          </td>
+                        </tr>
+                      </table>
+                  </form>
+
+		</div>
+{% endfor %}
+
+{% endblock %}

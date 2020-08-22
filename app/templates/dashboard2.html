@@ -1,0 +1,85 @@
+{% extends "base.html" %}
+
+{% block content %}
+</div onload="func();">
+    <div class="w3-col m7">
+    	<div class="w3-row-padding">
+    		<div class="w3-col m12" id="wall">
+    			<div class="w3-card w3-round w3-white">
+    				<!--insert here navbar-->
+    				<div class="w3-container w3-padding">
+              {% if groups|length > 0 %}
+    					<form action="" method = "post">
+                {{ form.csrf_token }}
+              				<table>
+              					<tr>
+              						<td>
+				              			<h6 class="w3-opacity">How are you feeling today?</h6>
+            				  		</td>
+              					</tr>
+              					<tr>
+              						<td>
+              							{{ form.body(class="w3-border w3-padding",type="text",placeholder="Write a post",rows="2",cols="60") }}              							
+              						</td>
+              					</tr>
+              					<tr>
+              					</tr>
+              					<tr>
+              						<td>
+                            <select name="group_options">
+                              {% for i in range(0,groups|length) %}
+                              <option value="{{ groups[i].id }}" class="w3-theme">{{ groups[i].name }}</option>
+                              {% endfor %}
+                            </select>
+              							{{ form.submit(class="w3-button w3-theme") }}
+              						</td>
+              					</tr>
+              				</table>
+          				</form>
+                  {% else %}
+                  <div class="w3-container w3-card w3-white w3-round w3-margin">
+                    <p class="w3-col m7 w3-row-padding w3-col m12 w3-padding w3 w3-opacity">You have to join a group to post something or to view posts posted by others</p>
+                  </div>
+                {% endif %}
+      				</div>
+  				</div>
+			</div>
+		</div>
+
+		{% for i in range(0,posts|length) %}
+    {% if posts[posts|length-i-1].status ==1 %}
+		<div class="w3-container w3-card w3-white w3-round w3-margin">
+      <p class="w3-col m7 w3-row-padding w3-col m12 w3-padding w3 w3-opacity"> {{ posts[posts|length-i-1].author.username }} posted in {{ posts[posts|length-i-1].group.name }} {{posts[posts|length-i-1].timestamp }} ago</p>
+			<p class="w3-col m7 w3-row-padding w3-col m12 w3-padding w3 w3-opacity"> {{ posts[posts|length-i-1].body }}</p>
+                <form action="" method = "post">
+                {{ like.csrf_token }}
+                      <table>
+                        <tr>
+                          <td>
+                           <button class="w3-button w3-theme-d2 w3-margin-bottom" name = "Like" value="{{ posts[posts|length-i-1].id }}"><span class="w3-badge w3-right w3-small w3-green">{{ posts[posts|length-i-1].liker|length }}</span>Like</button>
+                          </td>
+                          <td>
+                          <button class="w3-button w3-theme-d2 w3-margin-bottom" name="Like" value="C {{ posts[posts|length-i-1].id }}"><span class="w3-badge w3-right w3-small w3-green">{{ posts[posts|length-i-1].comments.all()|length }}</span><i class="fa fa-comment">Comment</i></button>
+                          </td>
+                        </tr>
+                      </table>
+                  </form>
+
+		</div>
+    {% endif %}
+		{% endfor %}
+    <!-- End Middle Column -->
+	</div>
+
+    <!-- End Right Column -->
+    <script>
+      function func()
+      {
+        var a = getELementByTagName('textarea');
+        a.innerHTML = "";
+        return;
+      } 
+    </script>
+</div>
+<br>
+{% endblock %}

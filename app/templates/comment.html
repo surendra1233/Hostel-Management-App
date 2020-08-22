@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="w3-container w3-card w3-white w3-round w3-margin">
+      <p class="w3-col m7 w3-row-padding w3-col m12 w3-padding w3 w3-opacity"> {{ post.author.username }} posted in {{ post.group.name }} {{post.timestamp }} ago</p>
+			<p class="w3-col m7 w3-row-padding w3-col m12 w3-padding w3 w3-opacity"> {{ post.body }}</p>
+</div>
+{% for comment in post.comments %}
+<div class="w3-container w3-card w3-white w3-round w3-margin">
+	<p class="w3-col m7 w3-row-padding w3-col m12 w3-padding w3 w3-opacity"><i class="fa fa-thumbs-up">{{ comment.author.username }}</i> : {{ comment.body }}</p>
+</div>
+{% endfor %}
+</div>
+
+    <div class="w3-col m7">
+    	<div class="w3-row-padding">
+    		<div class="w3-col m12" id="wall">
+    			<div class="w3-card w3-round w3-white">
+    				<!--insert here navbar-->
+    				<div class="w3-container w3-padding">
+    					<form action="" method = "post">
+                			{{ form.csrf_token }}
+              				<table>
+              					<tr>
+              						<td>
+              							{{ form.body(class="w3-border w3-padding",type="text",placeholder="Write a comment",rows="2",cols="60") }}				
+              						</td>
+              						<td>
+              							{{ form.submit(class="w3-button w3-theme") }}
+              						</td>
+              					</tr>
+              				</table>
+          				</form>
+      				</div>
+  				</div>
+			</div>
+		</div>
+{% endblock %}

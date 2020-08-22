@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Home Page</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="{{ url_for('static',filename='styles/w3-index.css') }}">
+  <style>
+    body {font-family: "Times New Roman", Georgia, Serif;}
+    h1,h2,h3,h4,h5,h6 {
+    font-family: "Playfair Display";
+    letter-spacing: 5px;
+    }
+  </style>
+</head>
+
+<body>
+<!-- Navbar (sit on top) -->
+<div class="w3-top">
+  <div class="w3-bar w3-white w3-padding w3-card" style="letter-spacing:4px;">
+    <a href="#home" class="w3-bar-item w3-button">Hostel Management</a>
+    <!-- Right-sided navbar links. Hide them on small screens -->
+    <div class="w3-right w3-hide-small">
+      <a href="#features" class="w3-bar-item w3-button">Features</a>
+      <a href="#contact" class="w3-bar-item w3-button">Contact</a>
+      <a class="w3-bar-item w3-button" href ="{{ url_for('login') }}">Login</a>
+      <a class="w3-bar-item w3-button" href = "{{ url_for('register') }}">Sign Up</a>
+    </div>
+  </div>
+</div>
+
+<!-- Page content -->
+<div class="w3-content" style="max-width:1100px">
+
+  <!-- About Section -->
+  <div class="w3-row w3-padding-64" id="about">
+
+    <div class="w3-col m6 w3-padding-large">
+      <h1 class="w3-center">About This Project</h1><br>
+      <h5 class="w3-center">By Rutwik and Surendra</h5>
+      <p class="w3-large w3-text-grey w3-hide-medium">This website was created as a project for the course ITWS-II.</p>
+      <p class="w3-large w3-text-grey w3-hide-medium">We have used the following languages</p>
+      <ul class="w3-large w3-text-grey w3-hide-medium">
+        <p>Python</p>
+        <p>HTML</p>
+        <p>CSS</p>
+        <p>Javascript</p>
+        <p>Flask-SQLAlchemy</p>
+      </ul>
+    </div>
+  </div>
+  
+  <hr>
+  
+  <!-- Menu Section -->
+  <div class="w3-row w3-padding-64" id="features">
+    <div class="w3-col l6 w3-padding-large">
+      <h1 class="w3-center">Features</h1><br>
+      <h4>Login and Sign Up</h4>
+      <p class="w3-text-grey">We have a login page and sign up page that helps users access their dashboard.</p><br>
+    
+      <h4>Circles</h4>
+      <p class="w3-text-grey">A student can be a part of multiple circles.</p><br>
+    
+      <h4>Room Allocation</h4>
+      <p class="w3-text-grey">This is used to allocate rooms at the end of a year</p><br>
+    
+      <h4>Feed</h4>
+      <p class="w3-text-grey">We have a news feed that will display all your posts and the posts posted by members of your circles.</p><br>
+    
+      <h4>Communication with higher authorites</h4>
+      <p class="w3-text-grey">The posts posted can be send to hostel admins or wardens if we need to use help of higher authorites.</p>    
+    </div>
+    
+
+  </div>
+
+  <hr>
+
+  <!-- Contact Section -->
+  <div class="w3-container w3-padding-64" id="contact">
+    <h1>Contact Us</h1>
+    <p class="w3-large"><b>We are students of IIIT-H(International Institute of Information Technology, Hyderabad)</b></p>
+    <p class="w3-large">You can also contact us by phone <b>+91-XXXXXXXXXXX</b> or email reddy.rutwik@gmail.com</p>
+    <br><br><br><br><br><br><br><br><br><br>
+  </div>
+  
+<!-- End page content -->
+</div>
+
+<!-- Footer -->
+<footer class="w3-center w3-light-grey w3-padding-32">
+  <p>Created in 2018 &copy</a></p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,26 @@
+{% extends "base2.html" %}
+
+{% block content %}
+    <h1 class="heading">Sign In</h1>
+    <form action="" method="post">
+        <fieldset class="field">
+            {{ form.csrf_token }}
+            {{ form.hidden_tag() }}
+            <p class = "username">
+                {{ form.username(size=32,placeholder="username") }}<br>
+                {% for error in form.username.errors %}
+                <span style="color:red;">[{{ error }}]</span><br>
+                {% endfor %}
+            </p>
+            <p class = "password">
+                {{ form.password(size=32,placeholder="password") }}<br>
+                {% for error in form.password.errors %}
+                <span style="color:red;">[{{error}}]</span><br>
+                {% endfor %}
+            </p>
+            <p>{{ form.remember_me() }} {{ form.remember_me.label }}</p>
+            <p class="submit">{{ form.submit() }}</p>   
+        </fieldset>
+        
+    </form>
+{% endblock %}

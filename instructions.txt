@@ -1,0 +1,6 @@
+INSTRUCTIONS FOR USING THIS APP
+
+1)First type "export FLASK_APP=app/main_app.py" from the directoy this file lies.
+2)Type "flask run" to run the application
+3)If you want to make some user as an admin request joining the group in other groups and in terminal type "db.session.query(memb).filter(memb.c.user_id == User.query.filter_by(username= <your_username> )[0].id).update({"status" : memb.c.status + 2},synchronize_session=False)"
+

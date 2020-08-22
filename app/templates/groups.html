@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block content %}
+                  <div class="w3-container w3-card w3-white w3-round w3-margin">
+                    <p class="w3-col m7 w3-row-padding w3-col m12 w3-padding w3 w3-opacity">Other groups</p>
+                  </div>
+{% for group in groups %}
+<div class="w3-col m7">
+    	<div class="w3-row-padding">
+    		<div class="w3-col m12" id="wall">
+    			<div class="w3-card w3-round w3-white">
+    				<!--insert here navbar-->
+    				<div class="w3-container w3-padding">
+                	<form action="" method = "post">
+                	{{ form.csrf_token }}
+                     <table>
+                      	<tr>
+                      		<td>
+                      			<h1>{{ group.name }}</h1><br>
+                      		</td>
+                      	</tr>	
+                        <tr>
+                          <td>
+							<button class="w3-button w3-theme-d1 w3-margin-bottom"  name="groups" value ="{{ group.id }}"><i class="fa fa-thumbs-up">send request</i></button>
+                          </td>
+                        </tr>
+                      </table>
+                  </form>
+                 </div>
+  				</div>
+			</div>
+		</div>
+</div>
+{% endfor %}
+{% endblock %}
