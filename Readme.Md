@@ -26,6 +26,6 @@ flask run
     User must be present the group.
     run th following in terminal after starting the app
 ```shell
-    db.session.query(memb).filter(memb.c.user_id == User.query.filter_by(username= <your_username> )[0].id).update({"status" : memb.c.status + 2},synchronize_session=False)
-    ```
+    db.session.query(memb).filter(memb.c.user_id == User.query.filter_by(username= <your_username> )[0].id).update({"status" : memb.c.status + 2}synchronize_session=False)
+```
     
